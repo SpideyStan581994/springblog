@@ -21,7 +21,6 @@ public class AuthController {
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
-
     @PostMapping("/signup")
     public ResponseEntity signup(@RequestBody RegisterRequest registerRequest){
             authService.signup(registerRequest);
@@ -29,7 +28,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void login (@RequestBody LoginRequest loginRequest){
-            authService.login(loginRequest);
+    public String login (@RequestBody LoginRequest loginRequest){
+        return authService.login(loginRequest);
     }
 }
