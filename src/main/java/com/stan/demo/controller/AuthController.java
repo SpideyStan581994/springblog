@@ -1,5 +1,6 @@
 package com.stan.demo.controller;
 
+import com.stan.demo.dto.LoginRequest;
 import com.stan.demo.dto.RegisterRequest;
 import com.stan.demo.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class AuthController {
     public ResponseEntity signup(@RequestBody RegisterRequest registerRequest){
             authService.signup(registerRequest);
             return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public void login (@RequestBody LoginRequest loginRequest){
+            authService.login(loginRequest);
     }
 }
